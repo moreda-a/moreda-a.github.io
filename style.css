@@ -37,15 +37,7 @@ body {
   z-index: 10;
 }
 
-/* Banner
-.banner {
-  width: 100%;
-  height: 220px;
-  background: linear-gradient(135deg, #4471f7, #3352d8);
-  border-radius: 10px;
-  margin-bottom: -130px;
-} */
-
+/* Banner */
 .banner {
   width: 100%;
   height: 220px;
@@ -155,7 +147,7 @@ body {
 .content {
   flex: 1;
   padding: 4rem 5rem;
-  margin-left: 480px; /* Leave space for fixed sidebar */
+  margin-left: 480px;
   background-image: url('background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -166,7 +158,7 @@ body {
   z-index: 1;
 }
 
-/* Subtle overlay for readability (desktop) */
+/* Overlay (leave as-is) */
 .content::before {
   content: '';
   position: fixed;
@@ -284,13 +276,11 @@ footer {
     margin-bottom: 1rem;
   }
 
-  /* Hamburger visible */
   .menu-toggle {
     display: block;
     margin: 1rem auto;
   }
 
-  /* Menu hidden by default */
   .menu {
     overflow: hidden;
     max-height: 0;
@@ -468,3 +458,27 @@ footer {
   }
 }
 
+/* ============================ */
+/* 💡 Fix Devicon & FontAwesome color fade */
+/* ============================ */
+
+.skill img {
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+  filter: none !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.skill i {
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+  filter: none !important;
+  color: inherit !important;
+}
+
+.skill i.fa-solid,
+.skill i.fa-regular {
+  color: #4471f7 !important;
+}
