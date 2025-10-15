@@ -23,13 +23,13 @@ body {
 /* Sidebar */
 /* ======================= */
 .sidebar {
-  width: 480px;
+  width: 280px; /* reduced from 480px */
   background-color: #0d0d0d;
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3rem 2rem;
+  padding: 2rem 1rem; /* reduced padding */
   flex-shrink: 0;
   position: fixed;
   top: 0;
@@ -41,63 +41,63 @@ body {
 
 .banner {
   width: 100%;
-  height: 220px;
+  height: 140px; /* reduced */
   background: linear-gradient(135deg, #a9d4ff, #d5eaff);
-  border-radius: 10px;
-  margin-bottom: -130px;
-  box-shadow: 0 0 20px rgba(173, 216, 230, 0.4);
+  border-radius: 8px;
+  margin-bottom: -80px;
+  box-shadow: 0 0 10px rgba(173, 216, 230, 0.4);
 }
 
 /* Avatar */
 .avatar {
-  width: 340px;
-  height: 340px;
-  border-radius: 16px;
-  border: 6px solid #0d0d0d;
+  width: 200px;
+  height: 200px;
+  border-radius: 12px;
+  border: 4px solid #0d0d0d;
   object-fit: cover;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   z-index: 1;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .avatar:hover {
   transform: scale(1.03);
-  box-shadow: 0 0 25px rgba(68, 113, 247, 0.5);
+  box-shadow: 0 0 18px rgba(68, 113, 247, 0.5);
   cursor: pointer;
 }
 
 /* Profile Info */
 .profile {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .profile h2 {
-  font-size: 2.2rem;
+  font-size: 1.4rem;
   color: #fff;
 }
 
 .role {
-  font-size: 1.2rem;
+  font-size: 0.95rem;
   color: #ccc;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
 /* Menu */
 .menu a {
   color: #ddd;
   text-decoration: none;
-  padding: 1rem 1.5rem;
+  padding: 0.7rem 1rem;
   display: flex;
   align-items: center;
-  border-radius: 10px;
+  border-radius: 8px;
   transition: 0.3s;
-  font-size: 1.15rem;
+  font-size: 0.95rem;
 }
 
 .menu a i {
-  margin-right: 12px;
-  font-size: 1.3rem;
+  margin-right: 10px;
+  font-size: 1rem;
 }
 
 .menu a:hover,
@@ -110,8 +110,28 @@ body {
 .socials {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.8rem;
   margin-top: auto;
+  padding-top: 1.5rem;
+}
+
+.socials a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #4471f7;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.socials a:hover {
+  transform: scale(1.1);
+  background-color: #3352d8;
 }
 
 /* ======================= */
@@ -119,8 +139,8 @@ body {
 /* ======================= */
 .content {
   flex: 1;
-  padding: 5rem 6rem;
-  margin-left: 480px;
+  padding: 3rem 3rem;
+  margin-left: 280px; /* reduced sidebar width */
   background-image: url('background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -133,8 +153,8 @@ body {
   content: '';
   position: fixed;
   top: 0;
-  left: 480px;
-  width: calc(100% - 480px);
+  left: 280px;
+  width: calc(100% - 280px);
   height: 100vh;
   background: rgba(255, 255, 255, 0.35);
   z-index: 0;
@@ -145,43 +165,43 @@ body {
 /* Typography */
 /* ======================= */
 .content p {
-  font-size: 1.5rem;
+  font-size: 1rem; /* reduced from 1.5rem */
   color: #000;
-  margin-bottom: 1.6rem;
-  line-height: 2.2;
+  margin-bottom: 1.2rem;
+  line-height: 1.8;
 }
 
 section {
-  margin-bottom: 5rem;
-  padding-top: 4rem;
+  margin-bottom: 3rem;
+  padding-top: 2.5rem;
 }
 
 section h2 {
-  font-size: 2.6rem;
+  font-size: 1.6rem;
   font-weight: 700;
-  margin-bottom: 1.4rem;
+  margin-bottom: 1rem;
   color: #000;
-  border-bottom: 3px solid #4471f7;
+  border-bottom: 2px solid #4471f7;
   display: inline-block;
-  padding-bottom: 0.7rem;
+  padding-bottom: 0.4rem;
 }
 
 /* ======================= */
 /* 🏅 Achievements Section */
 /* ======================= */
 .achievement-category {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .achievement-category h3 {
-  font-size: 2rem;
+  font-size: 1.2rem;
   color: #000;
-  border-left: 5px solid #4471f7;
-  padding-left: 12px;
-  margin-bottom: 1.4rem;
+  border-left: 3px solid #4471f7;
+  padding-left: 8px;
+  margin-bottom: 1rem;
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.4rem;
 }
 
 .achievement-category ul {
@@ -190,41 +210,41 @@ section h2 {
 }
 
 .achievement-category li {
-  font-size: 1.4rem;
-  line-height: 2;
+  font-size: 0.95rem;
+  line-height: 1.7;
   color: #000;
-  margin-bottom: 1.1rem;
+  margin-bottom: 0.7rem;
   display: flex;
   align-items: flex-start;
-  gap: 0.9rem;
+  gap: 0.6rem;
 }
 
 .achievement-category li i {
   color: #f5b50a;
-  font-size: 1.3rem;
+  font-size: 1rem;
   flex-shrink: 0;
-  margin-top: 0.35rem;
+  margin-top: 0.25rem;
 }
 
 /* ======================= */
-/* 🎯 SKILLS SECTION (FIXED ICON SIZE) */
+/* 🎯 SKILLS SECTION */
 /* ======================= */
 .skills-category {
-  margin-top: 3.5rem;
+  margin-top: 2.5rem;
 }
 
 .skills-category h3 {
-  font-size: 1.9rem;
+  font-size: 1.1rem;
   color: #000;
-  margin-bottom: 1.2rem;
-  border-left: 4px solid #4471f7;
-  padding-left: 12px;
+  margin-bottom: 0.8rem;
+  border-left: 3px solid #4471f7;
+  padding-left: 8px;
 }
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 2.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 1.2rem;
   text-align: center;
   justify-items: center;
   align-items: start;
@@ -236,15 +256,15 @@ section h2 {
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 /* Uniform icon sizing */
 .skill img,
 .skill i {
-  width: 65px;
-  height: 65px;
-  margin-bottom: 0.6rem;
+  width: 45px;
+  height: 45px;
+  margin-bottom: 0.4rem;
   object-fit: contain;
   display: inline-block;
   line-height: 1;
@@ -253,119 +273,95 @@ section h2 {
 
 /* Font Awesome icons */
 .skill i {
-  font-size: 2.8rem;
+  font-size: 1.8rem;
   color: #4471f7;
 }
 
 /* Devicon (SVG logos) */
 .skill img {
-  filter: brightness(1.25) contrast(1.2) saturate(1.4);
+  filter: brightness(1.15) contrast(1.1) saturate(1.3);
   mix-blend-mode: normal;
 }
 
 /* Label */
 .skill p {
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   font-weight: 500;
   color: #000;
-  margin-top: 0.3rem;
 }
 
 /* Hover effect */
 .skill:hover {
-  transform: translateY(-6px) scale(1.05);
+  transform: translateY(-4px) scale(1.05);
 }
 
 .skill:hover img,
 .skill:hover i {
-  transform: scale(1.15);
-  filter: brightness(1.4) contrast(1.3) saturate(1.5);
-}
-
-/* Fix faded icon layers */
-.skills-category,
-.skills-grid,
-.skill {
-  position: relative;
-  z-index: 3;
+  transform: scale(1.1);
+  filter: brightness(1.3) contrast(1.2);
 }
 
 /* ======================= */
-/* 📱 Responsive */
+/* Responsive Adjustments */
 /* ======================= */
 @media (max-width: 1000px) {
   .sidebar {
     position: static;
     width: 100%;
     height: auto;
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .avatar {
+    width: 160px;
+    height: 160px;
   }
 
   .content {
     margin-left: 0;
-    padding: 2rem 1.5rem;
+    padding: 2rem 1.2rem;
     background-attachment: scroll;
   }
 
   section h2 {
-    font-size: 2.2rem;
+    font-size: 1.4rem;
   }
 
   .content p {
-    font-size: 1.3rem;
-  }
-
-  .achievement-category h3 {
-    font-size: 1.7rem;
-  }
-
-  .achievement-category li {
-    font-size: 1.2rem;
-  }
-
-  .skills-category h3 {
-    font-size: 1.6rem;
+    font-size: 0.95rem;
   }
 
   .skill img,
   .skill i {
-    width: 55px;
-    height: 55px;
+    width: 40px;
+    height: 40px;
   }
 
   .skill i {
-    font-size: 2.3rem;
+    font-size: 1.6rem;
   }
 }
 
 @media (max-width: 600px) {
   .content {
-    padding: 1.2rem;
+    padding: 1rem;
   }
 
   .content p {
-    font-size: 1.15rem;
+    font-size: 0.9rem;
   }
 
   section h2 {
-    font-size: 1.9rem;
-  }
-
-  .achievement-category li {
-    font-size: 1.05rem;
+    font-size: 1.2rem;
   }
 
   .skill img,
   .skill i {
-    width: 48px;
-    height: 48px;
-  }
-
-  .skill i {
-    font-size: 2rem;
+    width: 36px;
+    height: 36px;
   }
 
   .skill p {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 }
