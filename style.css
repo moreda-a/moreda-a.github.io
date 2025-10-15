@@ -385,3 +385,86 @@ footer {
     font-size: 1.3rem;
   }
 }
+
+/* ============================ */
+/* 🎯 SKILLS SECTION STYLING    */
+/* ============================ */
+
+.skills-category {
+  margin-top: 3rem;
+}
+
+.skills-category h3 {
+  font-size: 1.4rem;
+  color: #222;
+  margin-bottom: 1rem;
+  border-left: 4px solid #4471f7;
+  padding-left: 10px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill img,
+.skill i {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.skill i {
+  font-size: 2.8rem;
+  color: #4471f7;
+}
+
+.skill p {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Hover Effect */
+.skill:hover {
+  transform: translateY(-8px) scale(1.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.skill:hover img,
+.skill:hover i {
+  transform: scale(1.15);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 900px) {
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 1rem;
+  }
+
+  .skill img,
+  .skill i {
+    width: 60px;
+    height: 60px;
+  }
+}
+
