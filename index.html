@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohammadreza Daneshvaramoli — PhD Student</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="profile">
+      <div class="banner"></div>
+      <a href="me.jpg" target="_blank">
+        <img src="me.jpg" alt="Mohammadreza Daneshvaramoli" class="avatar">
+      </a>
+      <h2>Mohammadreza Daneshvaramoli</h2>
+      <p class="role">PhD Student</p>
+    </div>
+
+    <!-- 🔹 Hamburger button (visible only on small screens) -->
+    <button class="menu-toggle" id="menuToggle">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <!-- Sidebar navigation -->
+    <nav class="menu" id="sidebarMenu">
+      <a href="#home" class="active"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="#about"><i class="fa-solid fa-feather"></i> About</a>
+      <a href="#skills"><i class="fa-regular fa-gem"></i> Skills</a>
+      <a href="#research"><i class="fa-regular fa-folder"></i> Research</a>
+      <a href="#projects"><i class="fa-regular fa-newspaper"></i> Projects</a>
+      <a href="#contacts"><i class="fa-regular fa-envelope"></i> Contacts</a>
+    </nav>
+
+    <div class="socials">
+      <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="#"><i class="fa-brands fa-google"></i></a>
+      <a href="#"><i class="fa-brands fa-soundcloud"></i></a>
+      <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#"><i class="fa-brands fa-github"></i></a>
+    </div>
+  </div>
+
+  <main class="content">
+    <section id="home">
+      <h1>I’m <span>Mohammadreza Daneshvaramoli</span>,</h1>
+      <p class="subtitle">TDB</p>
+      <p>TDB</p>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>TDB</p>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <p>TDB.</p>
+    </section>
+
+    <section id="research">
+      <h2>Research</h2>
+      <p>TDB</p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <p>TDB</p>
+    </section>
+
+    <section id="contacts">
+      <h2>Contacts</h2>
+      <p>Email: mohammadreza.daneshvaramoli@gmail.com</p>
+      <p>LinkedIn: <a href="#" target="_blank">View Profile</a></p>
+      <p>GitHub: <a href="#" target="_blank">View Repositories</a></p>
+    </section>
+
+    <footer>© 2025 Mohammadreza Daneshvaramoli</footer>
+  </main>
+
+  <!-- 🔹 JavaScript for menu toggle -->
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebarMenu = document.getElementById('sidebarMenu');
+
+    menuToggle.addEventListener('click', () => {
+      sidebarMenu.classList.toggle('open');
+      menuToggle.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  font-family: 'Inter', sans-serif;
+  background-color: #f5f5f5;
+  color: #111;
+  min-height: 100vh;
+}
+
+/* Sidebar (Desktop - Fixed) */
+.sidebar {
+  width: 480px;
+  background-color: #0d0d0d;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 2rem;
+  flex-shrink: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+/* Banner
+.banner {
+  width: 100%;
+  height: 220px;
+  background: linear-gradient(135deg, #4471f7, #3352d8);
+  border-radius: 10px;
+  margin-bottom: -130px;
+} */
+
+.banner {
+  width: 100%;
+  height: 220px;
+  background: linear-gradient(135deg, #a9d4ff, #d5eaff);
+  border-radius: 10px;
+  margin-bottom: -130px;
+  box-shadow: 0 0 20px rgba(173, 216, 230, 0.4);
+}
+
+/* Avatar (Profile Image) */
+.avatar {
+  width: 360px;
+  height: 360px;
+  border-radius: 16px;
+  border: 6px solid #0d0d0d;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+  z-index: 1;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(68, 113, 247, 0.5);
+  cursor: pointer;
+}
+
+/* Profile Info */
+.profile {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.profile h2 {
+  font-size: 1.9rem;
+  margin-top: 0.8rem;
+}
+
+.role {
+  font-size: 1.1rem;
+  color: #aaa;
+  margin-bottom: 1.5rem;
+}
+
+/* Menu */
+.menu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+
+.menu a {
+  color: #ddd;
+  text-decoration: none;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 10px;
+  transition: background 0.3s, color 0.3s;
+  font-size: 1.05rem;
+}
+
+.menu a i {
+  margin-right: 12px;
+  font-size: 1.2rem;
+}
+
+.menu a:hover,
+.menu a.active {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* Social Icons */
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: auto;
+  padding-top: 2rem;
+}
+
+.socials a {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #4471f7;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  text-decoration: none;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.socials a:hover {
+  transform: scale(1.1);
+  background-color: #3352d8;
+}
+
+/* Main Content */
+.content {
+  flex: 1;
+  padding: 4rem 5rem;
+  margin-left: 480px; /* Leave space for fixed sidebar */
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  overflow-y: auto;
+  z-index: 1;
+}
+
+/* Subtle overlay for readability (desktop) */
+.content::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 480px;
+  width: calc(100% - 480px);
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.35);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.content h1,
+.content p,
+.content h2,
+footer {
+  position: relative;
+  z-index: 2;
+}
+
+.content h1 {
+  font-size: 2.8rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+
+.content h1 span {
+  color: #000;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.content p {
+  margin-bottom: 1.2rem;
+  color: #555;
+  line-height: 1.9;
+}
+
+section {
+  margin-bottom: 5rem;
+  padding-top: 4rem;
+}
+
+section h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #111;
+  border-bottom: 3px solid #4471f7;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+footer {
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 2.5rem;
+}
+
+/* ------------------------- */
+/* 📱 Responsive + Hamburger */
+/* ------------------------- */
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.menu-toggle.open {
+  transform: rotate(90deg);
+}
+
+/* Tablet & Mobile (Sidebar not fixed) */
+@media (max-width: 1000px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: static;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    text-align: center;
+    height: auto;
+  }
+
+  .banner {
+    display: none;
+  }
+
+  .avatar {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 0.8rem;
+  }
+
+  .profile h2 {
+    font-size: 1.5rem;
+  }
+
+  .role {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Hamburger visible */
+  .menu-toggle {
+    display: block;
+    margin: 1rem auto;
+  }
+
+  /* Menu hidden by default */
+  .menu {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background-color: #0d0d0d;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .menu.open {
+    max-height: 500px;
+    opacity: 1;
+    animation: slideDown 0.4s ease forwards;
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-10px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .menu a {
+    padding: 0.8rem 1.2rem;
+    justify-content: center;
+  }
+
+  .socials {
+    gap: 0.8rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .socials a {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .content {
+    margin-left: 0;
+    background-attachment: scroll;
+    padding: 2rem 1rem;
+  }
+
+  .content::before {
+    left: 0;
+    width: 100%;
+    background: transparent;
+  }
+
+  .content h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  section h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Small phones (<600px) */
+@media (max-width: 600px) {
+  .avatar {
+    width: 160px;
+    height: 160px;
+  }
+
+  .menu a {
+    padding: 0.6rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .content {
+    padding: 1.2rem;
+  }
+
+  .content h1 {
+    font-size: 1.8rem;
+  }
+
+  section h2 {
+    font-size: 1.3rem;
+  }
+}
