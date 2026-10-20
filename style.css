@@ -439,6 +439,33 @@ main.content ol {
 main.content > footer { margin-top: 8px; }
 
 /* ======================= */
+/* Lists on PC only */
+/* ======================= */
+@media (min-width: 901px) {
+  main.content li { line-height: 1.6; }
+
+  #industry > ul,
+  #projects ol,
+  #research .research-list { padding-left: 28px; }
+
+  #industry > ul > li > ul,
+  #research .research-list > li > ul {
+    padding-left: 28px;
+    margin-top: 6px;
+  }
+
+  #industry > ul > li,
+  #projects ol > li,
+  #research .research-list > li { margin-bottom: 14px; }
+
+  #industry > ul > li > ul > li,
+  #research .research-list > li > ul > li { margin-bottom: 6px; }
+
+  #industry > ul > li > ul > li:last-child,
+  #research .research-list > li > ul > li:last-child { margin-bottom: 0; }
+}
+
+/* ======================= */
 /* Tablets and phones */
 /* ======================= */
 @media (max-width: 900px) {
@@ -515,8 +542,8 @@ main.content > footer { margin-top: 8px; }
   .content p { font-size: 0.85rem; }
 
   #skills .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 10px;
   }
 
   .skill img,
@@ -559,6 +586,11 @@ main.content > footer { margin-top: 8px; }
   #research .research-list > li > ul { padding-left: 18px; }
 
   #skills .skills-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px 6px;
+  }
+
+  #skills .skills-category:first-of-type .skills-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
