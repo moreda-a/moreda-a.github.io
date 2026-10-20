@@ -392,6 +392,19 @@
     const menuToggle = document.getElementById('menuToggle');
     const sidebarMenu = document.getElementById('sidebarMenu');
     const mobileBreakpoint = window.matchMedia('(max-width: 900px)');
+    const sidebar = document.querySelector('.sidebar');
+
+    function updateStickyBar() {
+      if (!mobileBreakpoint.matches) {
+        sidebar.style.removeProperty('--stick-top');
+        document.documentElement.style.scrollPaddingTop = '';
+        return;
+      }
+      const hidden = menuToggle.offsetTop - 10;
+      sidebar.style.setProperty('--stick-top', -hidden + 'px');
+      document.documentElement.style.scrollPaddingTop =
+        (sidebar.offsetHeight - hidden) + 'px';
+    }
 
     function setMenuOpen(open) {
       const shouldOpen = open && mobileBreakpoint.matches;
@@ -399,6 +412,7 @@
       menuToggle.setAttribute('aria-expanded', String(shouldOpen));
       menuToggle.querySelector('i').className =
         shouldOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+      updateStickyBar();
     }
 
     menuToggle.addEventListener('click', () =>
@@ -418,6 +432,11 @@
     } else {
       mobileBreakpoint.addListener(() => setMenuOpen(false));
     }
+
+    updateStickyBar();
+    window.addEventListener('resize', updateStickyBar);
+    window.addEventListener('load', updateStickyBar);
+    if (document.fonts) document.fonts.ready.then(updateStickyBar);
   </script>
 </body>
 </html>
