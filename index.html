@@ -6,6 +6,54 @@
   <title>Mohammadreza Daneshvaramoli — PhD Student</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Consistent spacing across all website sections -->
+  <style>
+    main.content > section {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      padding-top: 22px !important;
+      padding-bottom: 22px !important;
+    }
+    main.content > section + section {
+      margin-top: 0 !important;
+    }
+    main.content > section > h2 {
+      margin-top: 0 !important;
+      margin-bottom: 16px !important;
+    }
+    main.content > section p {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    main.content > section h3 {
+      margin-top: 14px;
+      margin-bottom: 10px;
+    }
+    #about p:last-child { margin-bottom: 0; }
+    #achievements .achievement-category { margin-bottom: 16px; }
+    #achievements .achievement-category:last-child { margin-bottom: 0; }
+    #achievements ul { margin-top: 6px; margin-bottom: 0; }
+    #achievements li { margin-bottom: 7px; }
+    #industry > ul { margin-top: 0; margin-bottom: 0; }
+    #industry > ul > li { margin-bottom: 14px !important; }
+    #industry > ul > li:last-child { margin-bottom: 0 !important; }
+    #industry > ul > li > ul { margin-top: 5px !important; margin-bottom: 0; }
+    #projects h3 { margin-top: 0; }
+    #projects ol { margin-top: 8px; margin-bottom: 0; }
+    #projects ol > li { margin-bottom: 12px; }
+    #projects ol > li:last-child { margin-bottom: 0; }
+    #skills .skills-category { margin-bottom: 20px; }
+    #skills .skills-category:last-child { margin-bottom: 0; }
+    #skills .skills-category h3 { margin-top: 0; margin-bottom: 12px; }
+    #research .research-heading { margin-top: 14px; margin-bottom: 6px; }
+    #research .thesis-heading { margin-top: 12px; margin-bottom: 6px; }
+    #research .research-list { margin-top: 6px; margin-bottom: 10px; }
+    #research .research-list > li { margin-bottom: 11px; }
+    #research .research-list > li:last-child { margin-bottom: 0; }
+    #research .research-list > li > ul { margin-top: 4px; margin-bottom: 0; }
+    #contacts p:last-child { margin-bottom: 0; }
+    main.content > footer { margin-top: 8px; }
+  </style>
 </head>
 <body>
   <div class="sidebar">
@@ -24,11 +72,12 @@
 
     <nav class="menu" id="sidebarMenu">
       <a href="#about" class="active"><i class="fa-solid fa-user"></i> About</a>
+      <a href="#achievements"><i class="fa-solid fa-trophy"></i> Achievements</a>
+      <a href="#industry"><i class="fa-solid fa-briefcase"></i> Industry Experiences</a>
+      <a href="#projects"><i class="fa-regular fa-newspaper"></i> Technical Projects</a>
       <a href="#skills"><i class="fa-regular fa-gem"></i> Skills</a>
       <a href="#research"><i class="fa-regular fa-folder"></i> Research Projects</a>
-      <a href="#achievements"><i class="fa-solid fa-trophy"></i> Achievements</a>
-      <a href="#projects"><i class="fa-regular fa-newspaper"></i> Technical Projects</a>
-      <a href="#contacts"><i class="fa-regular fa-envelope"></i> Contact</a>
+      <a href="#contacts"><i class="fa-regular fa-envelope"></i> Contacts</a>
     </nav>
 
     <div class="socials">
@@ -160,7 +209,6 @@
 
   </ul>
 
-  <br>
 </section>
 
 <!-- Projects -->
@@ -174,25 +222,25 @@
       Built a Bidirectional LSTM (BiLSTM) classifier with TensorFlow/Keras, scikit-learn and pandas to send customer support tickets to the right department. It reached 86.4% test accuracy across 23 departments on 13K+ tickets.
       (<a href="https://github.com/moreda-a/support-ticket-triage-bilstm" target="_blank" rel="noopener noreferrer">Link to Github</a>)
     </li>
-    <br>
+
     <li>
       <strong>Energy Forecasting:</strong>
       Developed a Transformer encoder with multi-head self-attention, using TensorFlow/Keras, pandas and scikit-learn, to predict next-hour household energy use. It beat simple baselines with 29.0 Wh MAE on the UCI Appliances Energy dataset.
       (<a href="https://github.com/moreda-a/energy-forecasting-transformer" target="_blank" rel="noopener noreferrer">Link to Github</a>)
     </li>
-    <br>
+
     <li>
       <strong>Sensor Anomaly Detection:</strong>
       Built an unsupervised dense autoencoder with TensorFlow/Keras, pandas and scikit-learn to detect equipment faults from reconstruction error in multivariate sensor data. It reached an F1 score of 0.69 on the SKAB benchmark.
       (<a href="https://github.com/moreda-a/skab-anomaly-autoencoder" target="_blank" rel="noopener noreferrer">Link to Github</a>)
     </li>
-    <br>
+
     <li>
       <strong>Particle Aggregation Simulator (8086 Assembly Game):</strong>
       Built an interactive graphics simulation in 16-bit x86 (8086) assembly with about 1,600 lines of documented code. Moving particles freeze and stick when they touch the growing structure, and mode 2 grows a branching fractal pattern. Implemented pixel graphics with BIOS INT 10h, mouse control of the target with INT 33h, three simulation modes, a random number generator, and integer square root math for velocities.
       (<a href="https://github.com/moreda-a/8086-Graphical-Project" target="_blank" rel="noopener noreferrer">Link to Github</a>)
     </li>
-    <br>
+
     <li>
       <strong>RISC CPU Design:</strong>
       Designed a RISC processor in Verilog and VHDL using Intel/Altera Quartus II for an Altera FPGA. Built a 32-bit instruction register over a 16-bit datapath, a 32×16-bit register file, and an 8-operation ALU with add, subtract, left/right shifts, NAND, compare and max, plus overflow, zero, sign and equal flags. Also built a 16×16 multiplier, the PC, SP and address registers, a 256-word memory and control logic, and verified the design with waveform simulation.
@@ -200,7 +248,6 @@
     </li>
   </ol>
 
-  <br>
 </section>
 
 
