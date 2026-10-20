@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
 
 :root {
-  --sidebar-w: clamp(235px, 23vw, 300px);
+  --sidebar-w: 18.75rem;
 }
 
 * {
@@ -14,6 +14,11 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+}
+
+/* PC: everything scales with screen width (designed for 1440px) */
+@media (min-width: 901px) {
+  html { font-size: clamp(14px, 1.1111vw, 32px); }
 }
 
 body {
@@ -51,11 +56,11 @@ img { max-width: 100%; }
 
 .banner {
   width: 100%;
-  height: 120px;
+  height: 7.5rem;
   background: linear-gradient(135deg, #a9d4ff, #d5eaff);
-  border-radius: 8px;
-  margin-bottom: -70px;
-  box-shadow: 0 0 10px rgba(173, 216, 230, 0.4);
+  border-radius: 0.5rem;
+  margin-bottom: -4.375rem;
+  box-shadow: 0 0 0.625rem rgba(173, 216, 230, 0.4);
 }
 
 /* Avatar */
@@ -67,10 +72,10 @@ img { max-width: 100%; }
 
 .avatar {
   display: block;
-  width: 180px;
-  height: 180px;
-  border-radius: 12px;
-  border: 4px solid #0d0d0d;
+  width: 11.25rem;
+  height: 11.25rem;
+  border-radius: 0.75rem;
+  border: 0.25rem solid #0d0d0d;
   object-fit: cover;
   margin: 0 auto 1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -78,7 +83,7 @@ img { max-width: 100%; }
 
 .avatar:hover {
   transform: scale(1.03);
-  box-shadow: 0 0 16px rgba(68, 113, 247, 0.5);
+  box-shadow: 0 0 1rem rgba(68, 113, 247, 0.5);
   cursor: pointer;
 }
 
@@ -117,15 +122,15 @@ img { max-width: 100%; }
   padding: 0.6rem 0.9rem;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.625rem;
   white-space: normal;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   transition: 0.3s;
   font-size: 0.9rem;
 }
 
 .menu a i {
-  flex: 0 0 20px;
+  flex: 0 0 1.25rem;
   text-align: center;
   font-size: 1rem;
 }
@@ -146,8 +151,8 @@ img { max-width: 100%; }
 }
 
 .socials a {
-  width: 34px;
-  height: 34px;
+  width: 2.125rem;
+  height: 2.125rem;
   border-radius: 50%;
   background-color: #4471f7;
   color: white;
@@ -173,7 +178,7 @@ img { max-width: 100%; }
   margin-left: var(--sidebar-w);
   min-width: 0;
   min-height: 100vh;
-  padding: clamp(20px, 3vw, 46px);
+  padding: 2.875rem;
   background-image: url('background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -204,31 +209,31 @@ img { max-width: 100%; }
 .content p {
   font-size: 0.9rem;
   color: #000;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
   line-height: 1.7;
 }
 
 main.content > section {
   width: 100%;
-  max-width: 1100px;
+  max-width: none;
   min-width: 0;
   margin: 0;
-  padding: 22px 0;
+  padding: 1.375rem 0;
 }
 
 section h2 {
   font-size: 1.4rem;
   font-weight: 700;
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
   color: #000;
-  border-bottom: 2px solid #4471f7;
+  border-bottom: 0.125rem solid #4471f7;
   display: inline-block;
   padding-bottom: 0.3rem;
 }
 
 main.content h3 {
-  margin-top: 14px;
-  margin-bottom: 10px;
+  margin-top: 0.875rem;
+  margin-bottom: 0.625rem;
 }
 
 main.content p,
@@ -249,7 +254,7 @@ main.content ol {
 /* Achievements */
 /* ======================= */
 .achievement-category {
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 }
 
 .achievement-category:last-child {
@@ -259,8 +264,8 @@ main.content ol {
 .achievement-category h3 {
   font-size: 1.05rem;
   color: #000;
-  border-left: 3px solid #4471f7;
-  padding-left: 8px;
+  border-left: 0.1875rem solid #4471f7;
+  padding-left: 0.5rem;
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -269,14 +274,14 @@ main.content ol {
 .achievement-category ul {
   list-style: none;
   padding-left: 0;
-  margin-top: 6px;
+  margin-top: 0.375rem;
 }
 
 .achievement-category li {
   font-size: 0.85rem;
   line-height: 1.6;
   color: #000;
-  margin-bottom: 7px;
+  margin-bottom: 0.4375rem;
   display: flex;
   align-items: flex-start;
   gap: 0.6rem;
@@ -293,11 +298,11 @@ main.content ol {
 /* Industry */
 /* ======================= */
 #industry > ul {
-  padding-left: 24px;
+  padding-left: 1.5rem;
 }
 
 #industry > ul > li {
-  margin-bottom: 14px;
+  margin-bottom: 0.875rem;
 }
 
 #industry > ul > li:last-child {
@@ -305,14 +310,14 @@ main.content ol {
 }
 
 #industry > ul > li > ul {
-  margin-top: 5px;
-  padding-left: 20px;
+  margin-top: 0.3125rem;
+  padding-left: 1.25rem;
 }
 
 #industry span[style*="float:right"] {
   float: none !important;
   display: block;
-  margin-top: 3px;
+  margin-top: 0.1875rem;
 }
 
 /* ======================= */
@@ -321,18 +326,18 @@ main.content ol {
 #projects h3 { margin-top: 0; }
 
 #projects ol {
-  margin-top: 8px;
-  padding-left: 24px;
+  margin-top: 0.5rem;
+  padding-left: 1.5rem;
 }
 
-#projects ol > li { margin-bottom: 12px; }
+#projects ol > li { margin-bottom: 0.75rem; }
 #projects ol > li:last-child { margin-bottom: 0; }
 
 /* ======================= */
 /* Skills */
 /* ======================= */
 .skills-category {
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .skills-category:last-child { margin-bottom: 0; }
@@ -341,14 +346,14 @@ main.content ol {
   font-size: 1rem;
   color: #000;
   margin-top: 0;
-  margin-bottom: 12px;
-  border-left: 3px solid #4471f7;
-  padding-left: 8px;
+  margin-bottom: 0.75rem;
+  border-left: 0.1875rem solid #4471f7;
+  padding-left: 0.5rem;
 }
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(4.375rem, 1fr));
   gap: 1rem;
   text-align: center;
   justify-items: center;
@@ -368,8 +373,8 @@ main.content ol {
 
 .skill img,
 .skill i {
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   margin-bottom: 0.3rem;
   object-fit: contain;
   display: inline-block;
@@ -408,35 +413,35 @@ main.content ol {
 /* Research */
 /* ======================= */
 #research .research-heading {
-  margin-top: 14px;
-  margin-bottom: 6px;
+  margin-top: 0.875rem;
+  margin-bottom: 0.375rem;
 }
 
 #research .thesis-heading {
-  margin-top: 12px;
-  margin-bottom: 6px;
+  margin-top: 0.75rem;
+  margin-bottom: 0.375rem;
 }
 
 #research .research-list {
-  margin-top: 6px;
-  margin-bottom: 10px;
-  padding-left: 24px;
+  margin-top: 0.375rem;
+  margin-bottom: 0.625rem;
+  padding-left: 1.5rem;
   list-style-type: disc;
 }
 
-#research .research-list > li { margin-bottom: 11px; }
+#research .research-list > li { margin-bottom: 0.6875rem; }
 #research .research-list > li:last-child { margin-bottom: 0; }
 
 #research .research-list > li > ul {
   list-style-type: circle;
-  margin-top: 4px;
-  padding-left: 20px;
+  margin-top: 0.25rem;
+  padding-left: 1.25rem;
 }
 
-#research .research-list > li > ul > li { margin-bottom: 3px; }
+#research .research-list > li > ul > li { margin-bottom: 0.1875rem; }
 
 #contacts p:last-child { margin-bottom: 0; }
-main.content > footer { margin-top: 8px; }
+main.content > footer { margin-top: 0.5rem; }
 
 /* ======================= */
 /* Lists on PC only */
@@ -446,20 +451,20 @@ main.content > footer { margin-top: 8px; }
 
   #industry > ul,
   #projects ol,
-  #research .research-list { padding-left: 28px; }
+  #research .research-list { padding-left: 1.75rem; }
 
   #industry > ul > li > ul,
   #research .research-list > li > ul {
-    padding-left: 28px;
-    margin-top: 6px;
+    padding-left: 1.75rem;
+    margin-top: 0.375rem;
   }
 
   #industry > ul > li,
   #projects ol > li,
-  #research .research-list > li { margin-bottom: 14px; }
+  #research .research-list > li { margin-bottom: 0.875rem; }
 
   #industry > ul > li > ul > li,
-  #research .research-list > li > ul > li { margin-bottom: 6px; }
+  #research .research-list > li > ul > li { margin-bottom: 0.375rem; }
 
   #industry > ul > li > ul > li:last-child,
   #research .research-list > li > ul > li:last-child { margin-bottom: 0; }
