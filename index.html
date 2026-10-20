@@ -1,61 +1,319 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mohammadreza Daneshvaramoli — PhD Student</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- Consistent spacing across all website sections -->
+
   <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; overflow-x: hidden; }
+    img { max-width: 100%; }
+
+    /* Responsive desktop layout */
+    .sidebar {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      bottom: 0 !important;
+      width: clamp(235px, 23vw, 300px) !important;
+      min-width: 0 !important;
+      height: 100dvh !important;
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+      z-index: 1000;
+    }
+
+    .sidebar .profile { max-width: 100%; }
+    .sidebar .profile h2 { overflow-wrap: anywhere; }
+    .sidebar .menu { width: 100%; }
+    .sidebar .menu a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: normal;
+    }
+    .sidebar .menu a i {
+      flex: 0 0 20px;
+      text-align: center;
+    }
+
+    main.content {
+      margin-left: clamp(235px, 23vw, 300px) !important;
+      width: auto !important;
+      min-width: 0 !important;
+      max-width: none !important;
+      padding: clamp(20px, 3vw, 46px) !important;
+      overflow: visible !important;
+    }
+
     main.content > section {
-      margin-top: 0 !important;
-      margin-bottom: 0 !important;
-      padding-top: 22px !important;
-      padding-bottom: 22px !important;
+      width: 100% !important;
+      max-width: 1100px;
+      min-width: 0;
+      margin: 0 !important;
+      padding: 22px 0 !important;
     }
-    main.content > section + section {
-      margin-top: 0 !important;
-    }
+
     main.content > section > h2 {
       margin-top: 0 !important;
       margin-bottom: 16px !important;
     }
-    main.content > section p {
+
+    main.content p {
       margin-top: 0;
       margin-bottom: 10px;
     }
-    main.content > section h3 {
+
+    main.content h3 {
       margin-top: 14px;
       margin-bottom: 10px;
     }
+
+    main.content p,
+    main.content li,
+    main.content h2,
+    main.content h3 {
+      overflow-wrap: break-word;
+    }
+
+    main.content ul,
+    main.content ol {
+      max-width: 100%;
+    }
+
+    /* Consistent section spacing */
     #about p:last-child { margin-bottom: 0; }
-    #achievements .achievement-category { margin-bottom: 16px; }
-    #achievements .achievement-category:last-child { margin-bottom: 0; }
-    #achievements ul { margin-top: 6px; margin-bottom: 0; }
+
+    #achievements .achievement-category {
+      margin-bottom: 16px;
+    }
+    #achievements .achievement-category:last-child {
+      margin-bottom: 0;
+    }
+    #achievements ul {
+      margin-top: 6px;
+      margin-bottom: 0;
+    }
     #achievements li { margin-bottom: 7px; }
-    #industry > ul { margin-top: 0; margin-bottom: 0; }
-    #industry > ul > li { margin-bottom: 14px !important; }
-    #industry > ul > li:last-child { margin-bottom: 0 !important; }
-    #industry > ul > li > ul { margin-top: 5px !important; margin-bottom: 0; }
+
+    #industry > ul {
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-left: 24px !important;
+    }
+    #industry > ul > li {
+      margin-bottom: 14px !important;
+    }
+    #industry > ul > li:last-child {
+      margin-bottom: 0 !important;
+    }
+    #industry > ul > li > ul {
+      margin-top: 5px !important;
+      margin-bottom: 0;
+      padding-left: 20px !important;
+    }
+    #industry span[style*="float:right"] {
+      float: none !important;
+      display: block;
+      margin-top: 3px;
+    }
+
     #projects h3 { margin-top: 0; }
-    #projects ol { margin-top: 8px; margin-bottom: 0; }
+    #projects ol {
+      margin-top: 8px;
+      margin-bottom: 0;
+      padding-left: 24px !important;
+    }
     #projects ol > li { margin-bottom: 12px; }
     #projects ol > li:last-child { margin-bottom: 0; }
+
     #skills .skills-category { margin-bottom: 20px; }
     #skills .skills-category:last-child { margin-bottom: 0; }
-    #skills .skills-category h3 { margin-top: 0; margin-bottom: 12px; }
-    #research .research-heading { margin-top: 14px; margin-bottom: 6px; }
-    #research .thesis-heading { margin-top: 12px; margin-bottom: 6px; }
-    #research .research-list { margin-top: 6px; margin-bottom: 10px; }
-    #research .research-list > li { margin-bottom: 11px; }
-    #research .research-list > li:last-child { margin-bottom: 0; }
-    #research .research-list > li > ul { margin-top: 4px; margin-bottom: 0; }
+    #skills .skills-category h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+    #skills .skills-grid {
+      min-width: 0;
+      max-width: 100%;
+    }
+    #skills .skill { min-width: 0; }
+    #skills .skill p { overflow-wrap: anywhere; }
+
+    #research .research-heading {
+      margin-top: 14px;
+      margin-bottom: 6px;
+    }
+    #research .thesis-heading {
+      margin-top: 12px;
+      margin-bottom: 6px;
+    }
+    #research .research-list {
+      margin-top: 6px;
+      margin-bottom: 10px;
+      padding-left: 24px !important;
+      list-style-type: disc;
+    }
+    #research .research-list > li {
+      margin-bottom: 11px;
+    }
+    #research .research-list > li:last-child {
+      margin-bottom: 0;
+    }
+    #research .research-list > li > ul {
+      list-style-type: circle;
+      margin-top: 4px;
+      margin-bottom: 0;
+      padding-left: 20px !important;
+    }
+    #research .research-list > li > ul > li {
+      margin-bottom: 3px;
+    }
+
     #contacts p:last-child { margin-bottom: 0; }
     main.content > footer { margin-top: 8px; }
+
+    /* Menu button is hidden on desktops */
+    .menu-toggle { display: none !important; }
+    .mobile-header, .menu-backdrop { display: none; }
+
+    /* Tablet and phone layout */
+    @media (max-width: 900px) {
+      html { scroll-padding-top: 76px; }
+
+      .mobile-header {
+        display: flex !important;
+        position: sticky;
+        top: 0;
+        z-index: 1100;
+        min-height: 60px;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 16px;
+        background: #171717;
+        color: #fff;
+        box-shadow: 0 2px 12px rgba(0,0,0,.15);
+      }
+
+      .mobile-header .mobile-title {
+        font-size: 15px;
+        font-weight: 650;
+        line-height: 1.3;
+      }
+
+      .mobile-header .menu-toggle {
+        display: inline-flex !important;
+        position: static !important;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 42px;
+        width: 42px;
+        height: 42px;
+        margin: 0;
+        border: 1px solid rgba(255,255,255,.25);
+        border-radius: 9px;
+        background: #292929;
+        color: #fff;
+        cursor: pointer;
+        font-size: 19px;
+        box-shadow: none !important;
+      }
+
+      .sidebar {
+        width: min(310px, 85vw) !important;
+        transform: translateX(-105%) !important;
+        transition: transform .25s ease;
+        box-shadow: 10px 0 30px rgba(0,0,0,.2);
+        z-index: 1200 !important;
+      }
+
+      .sidebar.is-open {
+        transform: translateX(0) !important;
+      }
+
+      .sidebar .menu {
+        display: flex !important;
+        flex-direction: column;
+        position: static !important;
+        height: auto !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+
+      .menu-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 1150;
+        background: rgba(0,0,0,.55);
+      }
+
+      .menu-backdrop.is-visible {
+        display: block !important;
+      }
+
+      body.menu-open { overflow: hidden; }
+
+      main.content {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: clamp(16px, 4vw, 30px) !important;
+      }
+
+      main.content > section {
+        padding-top: 18px !important;
+        padding-bottom: 18px !important;
+      }
+
+      main.content > section > h2 {
+        margin-bottom: 14px !important;
+      }
+
+      #skills .skills-grid {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)) !important;
+        gap: 12px !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      main.content { padding: 16px !important; }
+      main.content p, main.content li { line-height: 1.6; }
+      #research .research-list, #projects ol {
+        padding-left: 22px !important;
+      }
+      #research .research-list > li > ul {
+        padding-left: 18px !important;
+      }
+      #skills .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+      .mobile-header .mobile-title { font-size: 14px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .sidebar { transition: none; }
+    }
   </style>
 </head>
+
 <body>
+  <header class="mobile-header">
+    <button class="menu-toggle" id="menuToggle" type="button"
+      aria-label="Open navigation" aria-controls="sidebarMenu"
+      aria-expanded="false">
+      <i class="fa-solid fa-bars" aria-hidden="true"></i>
+    </button>
+    <span class="mobile-title">Mohammadreza Daneshvaramoli</span>
+  </header>
+
+  <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
+
   <div class="sidebar">
     <div class="profile">
       <div class="banner"></div>
@@ -66,15 +324,11 @@
       <p class="role">PhD Student</p>
     </div>
 
-    <button class="menu-toggle" id="menuToggle">
-      <i class="fa-solid fa-bars"></i>
-    </button>
-
-    <nav class="menu" id="sidebarMenu">
+    <nav class="menu" id="sidebarMenu" aria-label="Main navigation">
       <a href="#about" class="active"><i class="fa-solid fa-user"></i> About</a>
       <a href="#achievements"><i class="fa-solid fa-trophy"></i> Achievements</a>
       <a href="#industry"><i class="fa-solid fa-briefcase"></i> Industry Experiences</a>
-      <a href="#projects"><i class="fa-regular fa-newspaper"></i> Selected Technical Projects</a>
+      <a href="#projects"><i class="fa-regular fa-newspaper"></i> Technical Projects</a>
       <a href="#skills"><i class="fa-regular fa-gem"></i> Skills</a>
       <a href="#research"><i class="fa-regular fa-folder"></i> Research Projects</a>
       <a href="#contacts"><i class="fa-regular fa-envelope"></i> Contacts</a>
@@ -83,56 +337,49 @@
     <div class="socials">
       <a href="https://www.linkedin.com/in/moredaa/"><i class="fa-brands fa-linkedin-in"></i></a>
       <a href="https://scholar.google.com/citations?user=9kes09AAAAAJ&hl=en"><i class="fa-brands fa-google"></i></a>
-      <!--<a href="#"><i class="fa-brands fa-soundcloud"></i></a> -->
-     <!-- <a href="#"><i class="fa-brands fa-facebook-f"></i></a> -->
       <a href="https://github.com/moreda-a/"><i class="fa-brands fa-github"></i></a>
     </div>
   </div>
 
   <main class="content">
 
+    <!-- About -->
+    <section id="about">
+      <h2>About</h2>
 
+      <p>
+        I am Mohammadreza Daneshvaramoli, a Ph.D. student in Computer Science
+        at the University of Massachusetts Amherst since Spring 2023,
+        with B.Sc. and M.Sc. degrees in Computer Engineering from
+        Sharif University of Technology. My background combines
+        <strong>theoretical computer science, algorithm design,
+        mathematical optimization, and machine learning</strong>.
+      </p>
 
-<!-- About -->
-<section id="about">
-  <h2>About</h2>
+      <p>
+        My research centers on <strong>learning-augmented online algorithms</strong>,
+        exploring how machine-learned predictions can improve algorithmic
+        performance without sacrificing worst-case guarantees.
+        I study <strong>competitive analysis, consistency–robustness trade-offs,
+        and decision-making under uncertainty</strong>, addressing problems
+        in online selection, caching, scheduling, resource allocation,
+        and the k-server problem.
+      </p>
 
-  <p>
-    I am Mohammadreza Daneshvaramoli, a Ph.D. student in Computer Science
-    at the University of Massachusetts Amherst since Spring 2023,
-    with B.Sc. and M.Sc. degrees in Computer Engineering from
-    Sharif University of Technology. My background combines
-    <strong>theoretical computer science, algorithm design,
-    mathematical optimization, and machine learning</strong>.
-  </p>
-
-  <p>
-    My research centers on <strong>learning-augmented online algorithms</strong>,
-    exploring how machine-learned predictions can improve algorithmic
-    performance without sacrificing worst-case guarantees.
-    I study <strong>competitive analysis, consistency–robustness trade-offs,
-    and decision-making under uncertainty</strong>, addressing problems
-    in online selection, caching, scheduling, resource allocation,
-    and the k-server problem.
-  </p>
-
-  <p>
-    I am interested in applying rigorous mathematical and computational
-    methods to real-world challenges, particularly in
-    <strong>quantitative research, large-scale optimization,
-    and data-driven decision systems</strong>.
-  </p>
-
-</section>
-
-
+      <p>
+        I am interested in applying rigorous mathematical and computational
+        methods to real-world challenges, particularly in
+        <strong>quantitative research, large-scale optimization,
+        and data-driven decision systems</strong>.
+      </p>
+    </section>
 
     <!-- Achievements -->
     <section id="achievements">
       <h2>Achievements</h2>
 
       <div class="achievement-category">
-        <h3>Olympiads and other<i class="fa-solid fa-medal"></i></h3>
+        <h3>Olympiads and other <i class="fa-solid fa-medal"></i></h3>
         <ul>
           <li><i class="fa-solid fa-medal"></i> Gold medal in Iran National Mathematics Olympiad, 2013</li>
           <li><i class="fa-solid fa-medal"></i> Gold medal in Iran National Computer Science Olympiad for undergraduate students. Iran, 2019</li>
@@ -154,363 +401,287 @@
       </div>
     </section>
 
-
-<!-- Industry Experiences -->
-<section id="industry">
-  <h2>Industry Experiences</h2>
-
-  <ul style="padding-left: 25px;">
-
-    <li style="margin-bottom: 25px;">
-      <strong>Student Researcher (Upcoming)</strong>,
-      Google Research, Mountain View, CA
-
-      <ul style="margin-top: 8px; padding-left: 30px;">
-        <li>Pending deemed export license.</li>
-      </ul>
-    </li>
-
-    <li style="margin-bottom: 25px;">
-      <strong>Curanostics Startup</strong>,
-      Flask-Based <strong>RAG</strong> Pipeline for Automated Patient Record Summaries,
-      short-term project
-      <span style="float:right;">Feb 2025</span>
-
-      <ul style="margin-top: 8px; padding-left: 30px;">
+    <!-- Industry Experiences -->
+    <section id="industry">
+      <h2>Industry Experiences</h2>
+      <ul>
         <li>
-          Developed a Flask-based patient-data processing system
-          using a Retrieval-Augmented Generation (RAG) pipeline
-          with GPT-4 to extract clinical fields from JSON files.
-          (<a href="https://github.com/moreda-a/patient-portal"
-          target="_blank" rel="noopener noreferrer">github</a>)
+          <strong>Student Researcher (Upcoming)</strong>,
+          Google Research, Mountain View, CA
+          <ul>
+            <li>Pending deemed export license.</li>
+          </ul>
+        </li>
+
+        <li>
+          <strong>Curanostics Startup</strong>,
+          Flask-Based RAG Pipeline for Automated Patient Record Summaries,
+          short-term project
+          <span style="float:right;">Feb 2025</span>
+          <ul>
+            <li>
+              Developed a Flask-based patient-data processing system
+              using a Retrieval-Augmented Generation (RAG) pipeline
+              with GPT-4 to extract clinical fields from JSON files.
+              (<a href="https://github.com/moreda-a/patient-portal" target="_blank" rel="noopener noreferrer">github</a>)
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <strong>Research Engineer</strong>,
+          Institute for Research in Fundamental Sciences (IPM),
+          Tehran, Iran
+          <span style="float:right;">May 2020 – September 2022</span>
+        </li>
+
+        <li>
+          <strong>Web Application Developer</strong>,
+          Imperial College London, London, UK
+          <span style="float:right;">Summer 2018</span>
+          <ul>
+            <li>
+              Developed a web application to estimate exposure
+              to laboratory hazards, focusing on numerical analysis.
+            </li>
+          </ul>
         </li>
       </ul>
-    </li>
+    </section>
 
-    <li style="margin-bottom: 25px;">
-      <strong>Research Engineer</strong>,
-      Institute for Research in Fundamental Sciences (IPM),
-      Tehran, Iran
-      <span style="float:right;">May 2020 – September 2022</span>
-    </li>
+    <!-- Technical Projects -->
+    <section id="projects">
+      <h2>Technical Projects</h2>
+      <h3>Selected Independent Projects</h3>
 
-    <li style="margin-bottom: 25px;">
-      <strong>Web Application Developer</strong>,
-      Imperial College London, London, UK
-      <span style="float:right;">Summer 2018</span>
-
-      <ul style="margin-top: 8px; padding-left: 30px;">
+      <ol>
         <li>
-          Developed a web application to estimate exposure
-          to laboratory hazards, focusing on numerical analysis.
+          <strong>Support Ticket Triage:</strong>
+          Built a Bidirectional LSTM (BiLSTM) classifier with TensorFlow/Keras, scikit-learn and pandas to send customer support tickets to the right department. It reached 86.4% test accuracy across 23 departments on 13K+ tickets.
+          (<a href="https://github.com/moreda-a/support-ticket-triage-bilstm" target="_blank" rel="noopener noreferrer">Link to Github</a>)
+        </li>
+
+        <li>
+          <strong>Energy Forecasting:</strong>
+          Developed a Transformer encoder with multi-head self-attention, using TensorFlow/Keras, pandas and scikit-learn, to predict next-hour household energy use. It beat simple baselines with 29.0 Wh MAE on the UCI Appliances Energy dataset.
+          (<a href="https://github.com/moreda-a/energy-forecasting-transformer" target="_blank" rel="noopener noreferrer">Link to Github</a>)
+        </li>
+
+        <li>
+          <strong>Sensor Anomaly Detection:</strong>
+          Built an unsupervised dense autoencoder with TensorFlow/Keras, pandas and scikit-learn to detect equipment faults from reconstruction error in multivariate sensor data. It reached an F1 score of 0.69 on the SKAB benchmark.
+          (<a href="https://github.com/moreda-a/skab-anomaly-autoencoder" target="_blank" rel="noopener noreferrer">Link to Github</a>)
+        </li>
+
+        <li>
+          <strong>Particle Aggregation Simulator (8086 Assembly Game):</strong>
+          Built an interactive graphics simulation in 16-bit x86 (8086) assembly with about 1,600 lines of documented code. Moving particles freeze and stick when they touch the growing structure, and mode 2 grows a branching fractal pattern. Implemented pixel graphics with BIOS INT 10h, mouse control of the target with INT 33h, three simulation modes, a random number generator, and integer square root math for velocities.
+          (<a href="https://github.com/moreda-a/8086-Graphical-Project" target="_blank" rel="noopener noreferrer">Link to Github</a>)
+        </li>
+
+        <li>
+          <strong>RISC CPU Design:</strong>
+          Designed a RISC processor in Verilog and VHDL using Intel/Altera Quartus II for an Altera FPGA. Built a 32-bit instruction register over a 16-bit datapath, a 32×16-bit register file, and an 8-operation ALU with add, subtract, left/right shifts, NAND, compare and max, plus overflow, zero, sign and equal flags. Also built a 16×16 multiplier, the PC, SP and address registers, a 256-word memory and control logic, and verified the design with waveform simulation.
+          (<a href="https://github.com/moreda-a/CPU-Design-RISC" target="_blank" rel="noopener noreferrer">Link to Github</a>)
+        </li>
+      </ol>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2>Skills</h2>
+
+      <div class="skills-category">
+        <h3>Research Skills</h3>
+        <div class="skills-grid">
+          <div class="skill"><i class="fa-solid fa-brain"></i><p>Learning Algorithms</p></div>
+          <div class="skill"><i class="fa-solid fa-robot"></i><p>Artificial Intelligence</p></div>
+          <div class="skill"><i class="fa-solid fa-microchip"></i><p>Machine Learning</p></div>
+          <div class="skill"><i class="fa-solid fa-chart-line"></i><p>Optimization</p></div>
+          <div class="skill"><i class="fa-solid fa-dice"></i><p>Monte-Carlo Tree Search</p></div>
+          <div class="skill"><i class="fa-solid fa-route"></i><p>Pathfinding Algorithms</p></div>
+          <div class="skill"><i class="fa-solid fa-shuffle"></i><p>Algorithms with Uncertainty</p></div>
+          <div class="skill"><i class="fa-solid fa-database"></i><p>Data Analysis</p></div>
+          <div class="skill"><i class="fa-solid fa-project-diagram"></i><p>Graph Theory</p></div>
+          <div class="skill"><i class="fa-solid fa-diagram-project"></i><p>Design Algorithms</p></div>
+          <div class="skill"><i class="fa-solid fa-code"></i><p>Web Application Development</p></div>
+          <div class="skill"><i class="fa-solid fa-chart-pie"></i><p>Quantitative Analysis</p></div>
+          <div class="skill"><i class="fa-solid fa-arrow-trend-up"></i><p>Trading Algorithms</p></div>
+          <div class="skill"><i class="fa-solid fa-chart-line"></i><p>Forecasting</p></div>
+          <div class="skill"><i class="fa-solid fa-fingerprint"></i><p>Pattern Recognition</p></div>
+          <div class="skill"><i class="fa-solid fa-network-wired"></i><p>Deep Learning Algorithms</p></div>
+        </div>
+      </div>
+
+      <div class="skills-category">
+        <h3>Programming Languages</h3>
+        <div class="skills-grid">
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C"><p>C</p></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++"><p>C++</p></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"><p>Java</p></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"><p>Python</p></div>
+          <div class="skill"><i class="fa-solid fa-code"></i><p>Pascal</p></div>
+          <div class="skill"><i class="fa-solid fa-terminal"></i><p>Delphi</p></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#"><p>C#</p></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg" alt="Matlab"><p>Matlab</p></div>
+          <div class="skill"><i class="fa-solid fa-microchip"></i><p>80x86</p></div>
+          <div class="skill"><i class="fa-solid fa-brain"></i><p>Racket</p></div>
+          <div class="skill"><i class="fa-solid fa-brain"></i><p>Lisp</p></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"><p>HTML</p></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"><p>CSS</p></div>
+          <div class="skill"><i class="fa-solid fa-file-lines"></i><p>LaTeX</p></div>
+          <div class="skill"><i class="fa-solid fa-microchip"></i><p>MIPS</p></div>
+          <div class="skill"><i class="fa-solid fa-microchip"></i><p>Verilog</p></div>
+          <div class="skill"><i class="fa-solid fa-microchip"></i><p>VHDL</p></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL"><p>SQL</p></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="R"><p>R</p></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" alt="Go"><p>Go (Golang)</p></div>
+        </div>
+      </div>
+
+      <div class="skills-category">
+        <h3>Technical Tools</h3>
+        <div class="skills-grid">
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg" alt="Matlab"><p>Matlab</p></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg" alt="Visual Studio"><p>Visual Studio</p></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eclipse/eclipse-original.svg" alt="Eclipse"><p>Eclipse</p></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/clion/clion-original.svg" alt="CLion"><p>CLion</p></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pycharm/pycharm-original.svg" alt="PyCharm"><p>PyCharm</p></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"><p>Git</p></div>
+          <div class="skill"><i class="fa-solid fa-cubes"></i><p>OOP</p></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" alt="Jupyter Notebook"><p>Jupyter Notebook</p></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ros/ros-original.svg" alt="ROS2"><p>Robot Operating System (ROS2)</p></div>
+        </div>
+      </div>
+
+      <div class="skills-category">
+        <h3>Familiarities</h3>
+        <div class="skills-grid">
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask"><p>Flask</p></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" alt="scikit-learn"><p>scikit-learn</p></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch"><p>PyTorch</p></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow"><p>TensorFlow</p></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib"><p>Matplotlib</p></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy"><p>NumPy</p></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas"><p>Pandas</p></div>
+          <div class="skill"><i class="fa-solid fa-satellite-dish"></i><p>LiDAR Sensor</p></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux"><p>Linux</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research Projects -->
+    <section id="research">
+      <h2>Research Projects</h2>
+
+      <p class="research-heading">
+        <strong>PhD Research Projects</strong>,
+        University of Massachusetts Amherst, 2024–2026
+      </p>
+
+      <ul class="research-list">
+        <li>
+          <strong><em>On Worst-Case Guarantees for Graph-Based Vector Search.</em> Accepted to NeurIPS 2026.</strong>
+          <ul>
+            <li>Proved worst-case lower bounds for graph-based nearest-neighbor search and developed constructions using Steiner points that achieve provably sublinear query time by simulating locality-sensitive hashing.</li>
+          </ul>
+        </li>
+        <li>
+          <strong><em>Fairness in the k-Server Problem.</em> ITCS 2026.</strong>
+          <ul>
+            <li>The goal is to ensure no server bears excessive load while serving incoming requests (fairness notion) in a metric space.</li>
+            <li>Proved that there is no deterministic online algorithm that achieves a competitive ratio less than the diameter of the metric space while also being fair. Also, showed that for any non-constant <em>k</em> in a tree graph, the Double Coverage algorithm is not fair.</li>
+          </ul>
+        </li>
+        <li>
+          <strong><em>The Secretary Problem with Predictions and Chosen Order.</em> ITCS 2026.</strong>
+          <ul>
+            <li>Proposed a new hiring problem where you can use machine-learned predictions and even choose interview order, with an algorithm that stays strong even if predictions are wrong.</li>
+          </ul>
+        </li>
+        <li>
+          <strong><em>Near-Optimal Consistency-Robustness Trade-Offs for Learning-Augmented Online Knapsack Problems.</em> ICML 2025.</strong>
+          <ul>
+            <li>Developed learning-augmented online knapsack algorithms utilizing minimal predictive input—specifically, a single value or interval estimating the minimum value of items accepted by an optimal offline solution—achieving consistency and robustness.</li>
+          </ul>
+        </li>
+        <li>
+          <strong><em>Navigable Graphs for High-Dimensional Nearest Neighbor Search.</em> Ongoing research.</strong>
+          <ul>
+            <li>Developing scalable navigable graph structures for high-dimensional nearest neighbor search, with a focus on establishing rigorous theoretical performance bounds for graph-based retrieval methods.</li>
+          </ul>
+        </li>
+        <li>
+          <strong><em>Calibrated Predictions for Learning-Augmented Caching.</em> Ongoing research.</strong>
+          <ul>
+            <li>Designing online caching algorithms that leverage calibrated probabilistic machine-learned predictions for page reuse, and proving competitive guarantees that depend on calibration error.</li>
+            <li>The work introduces a binary prediction framework for caching and develops phase-based analyses connecting miscalibration to additional cache faults.</li>
+          </ul>
         </li>
       </ul>
-    </li>
 
-  </ul>
+      <p class="research-heading">
+        <strong>Research Engineer at Institute for Research in Fundamental Sciences (IPM)</strong>
+      </p>
 
-</section>
-
-<!-- Projects -->
-<section id="projects">
-  <h2>Selected Technical Projects</h2>
-
-  <h3>Selected Independent Projects</h3>
-  <ol>
-    <li>
-      <strong>Support Ticket Triage:</strong>
-      Built a Bidirectional LSTM (BiLSTM) classifier with TensorFlow/Keras, scikit-learn and pandas to send customer support tickets to the right department. It reached 86.4% test accuracy across 23 departments on 13K+ tickets.
-      (<a href="https://github.com/moreda-a/support-ticket-triage-bilstm" target="_blank" rel="noopener noreferrer">Link to Github</a>)
-    </li>
-
-    <li>
-      <strong>Energy Forecasting:</strong>
-      Developed a Transformer encoder with multi-head self-attention, using TensorFlow/Keras, pandas and scikit-learn, to predict next-hour household energy use. It beat simple baselines with 29.0 Wh MAE on the UCI Appliances Energy dataset.
-      (<a href="https://github.com/moreda-a/energy-forecasting-transformer" target="_blank" rel="noopener noreferrer">Link to Github</a>)
-    </li>
-
-    <li>
-      <strong>Sensor Anomaly Detection:</strong>
-      Built an unsupervised dense autoencoder with TensorFlow/Keras, pandas and scikit-learn to detect equipment faults from reconstruction error in multivariate sensor data. It reached an F1 score of 0.69 on the SKAB benchmark.
-      (<a href="https://github.com/moreda-a/skab-anomaly-autoencoder" target="_blank" rel="noopener noreferrer">Link to Github</a>)
-    </li>
-
-    <li>
-      <strong>Particle Aggregation Simulator (8086 Assembly Game):</strong>
-      Built an interactive graphics simulation in 16-bit x86 (8086) assembly with about 1,600 lines of documented code. Moving particles freeze and stick when they touch the growing structure, and mode 2 grows a branching fractal pattern. Implemented pixel graphics with BIOS INT 10h, mouse control of the target with INT 33h, three simulation modes, a random number generator, and integer square root math for velocities.
-      (<a href="https://github.com/moreda-a/8086-Graphical-Project" target="_blank" rel="noopener noreferrer">Link to Github</a>)
-    </li>
-
-    <li>
-      <strong>RISC CPU Design:</strong>
-      Designed a RISC processor in Verilog and VHDL using Intel/Altera Quartus II for an Altera FPGA. Built a 32-bit instruction register over a 16-bit datapath, a 32×16-bit register file, and an 8-operation ALU with add, subtract, left/right shifts, NAND, compare and max, plus overflow, zero, sign and equal flags. Also built a 16×16 multiplier, the PC, SP and address registers, a 256-word memory and control logic, and verified the design with waveform simulation.
-      (<a href="https://github.com/moreda-a/CPU-Design-RISC" target="_blank" rel="noopener noreferrer">Link to Github</a>)
-    </li>
-  </ol>
-
-</section>
-
-
-<!-- Skills -->
-<section id="skills">
-  <h2>Skills</h2>
-
-  <!-- Research Skills -->
-  <div class="skills-category">
-    <h3>Research Skills</h3>
-    <div class="skills-grid">
-      <div class="skill"><i class="fa-solid fa-brain"></i><p>Learning Algorithms</p></div>
-      <div class="skill"><i class="fa-solid fa-robot"></i><p>Artificial Intelligence</p></div>
-      <div class="skill"><i class="fa-solid fa-microchip"></i><p>Machine Learning</p></div>
-      <div class="skill"><i class="fa-solid fa-chart-line"></i><p>Optimization</p></div>
-      <div class="skill"><i class="fa-solid fa-dice"></i><p>Monte-Carlo Tree Search</p></div>
-      <div class="skill"><i class="fa-solid fa-route"></i><p>Pathfinding Algorithms</p></div>
-      <div class="skill"><i class="fa-solid fa-shuffle"></i><p>Algorithms with Uncertainty</p></div>
-      <div class="skill"><i class="fa-solid fa-database"></i><p>Data Analysis</p></div>
-      <div class="skill"><i class="fa-solid fa-project-diagram"></i><p>Graph Theory</p></div>
-      <div class="skill"><i class="fa-solid fa-diagram-project"></i><p>Design Algorithms</p></div>
-      <div class="skill"><i class="fa-solid fa-code"></i><p>Web Application Development</p></div>
-
-      <!-- Additional Research Skills -->
-      <div class="skill"><i class="fa-solid fa-chart-pie"></i><p>Quantitative Analysis</p></div>
-      <div class="skill"><i class="fa-solid fa-arrow-trend-up"></i><p>Trading Algorithms</p></div>
-      <div class="skill"><i class="fa-solid fa-chart-line"></i><p>Forecasting</p></div>
-      <div class="skill"><i class="fa-solid fa-fingerprint"></i><p>Pattern Recognition</p></div>
-      <div class="skill"><i class="fa-solid fa-network-wired"></i><p>Deep Learning Algorithms</p></div>
-    </div>
-  </div>
-
-  <!-- Programming Languages -->
-  <div class="skills-category">
-    <h3>Programming Languages</h3>
-    <div class="skills-grid">
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C"><p>C</p></div>
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++"><p>C++</p></div>
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"><p>Java</p></div>
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"><p>Python</p></div>
-      <div class="skill"><i class="fa-solid fa-code"></i><p>Pascal</p></div>
-      <div class="skill"><i class="fa-solid fa-terminal"></i><p>Delphi</p></div>
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#"><p>C#</p></div>
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg" alt="Matlab"><p>Matlab</p></div>
-      <div class="skill"><i class="fa-solid fa-microchip"></i><p>80x86</p></div>
-      <div class="skill"><i class="fa-solid fa-brain"></i><p>Racket</p></div>
-      <div class="skill"><i class="fa-solid fa-brain"></i><p>Lisp</p></div>
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"><p>HTML</p></div>
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"><p>CSS</p></div>
-      <div class="skill"><i class="fa-solid fa-file-lines"></i><p>LaTeX</p></div>
-      <div class="skill"><i class="fa-solid fa-microchip"></i><p>MIPS</p></div>
-      <div class="skill"><i class="fa-solid fa-microchip"></i><p>Verilog</p></div>
-      <div class="skill"><i class="fa-solid fa-microchip"></i><p>VHDL</p></div>
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL"><p>SQL</p></div>
-
-      <!-- Additional Programming Languages -->
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="R"><p>R</p></div>
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" alt="Go"><p>Go (Golang)</p></div>
-    </div>
-  </div>
-
-  <!-- Technical Tools -->
-  <div class="skills-category">
-    <h3>Technical Tools</h3>
-    <div class="skills-grid">
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg" alt="Matlab"><p>Matlab</p></div>
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg" alt="Visual Studio"><p>Visual Studio</p></div>
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eclipse/eclipse-original.svg" alt="Eclipse"><p>Eclipse</p></div>
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/clion/clion-original.svg" alt="CLion"><p>CLion</p></div>
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pycharm/pycharm-original.svg" alt="PyCharm"><p>PyCharm</p></div>
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"><p>Git</p></div>
-      <div class="skill"><i class="fa-solid fa-cubes"></i><p>OOP</p></div>
-
-      <!-- Additional Technical Tools -->
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" alt="Jupyter Notebook"><p>Jupyter Notebook</p></div>
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ros/ros-original.svg" alt="ROS2"><p>Robot Operating System (ROS2)</p></div>
-    </div>
-  </div>
-
-  <!-- Familiarities -->
-  <div class="skills-category">
-    <h3>Familiarities</h3>
-    <div class="skills-grid">
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask"><p>Flask</p></div>
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" alt="scikit-learn"><p>scikit-learn</p></div>
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch"><p>PyTorch</p></div>
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow"><p>TensorFlow</p></div>
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib"><p>Matplotlib</p></div>
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy"><p>NumPy</p></div>
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas"><p>Pandas</p></div>
-      <div class="skill"><i class="fa-solid fa-satellite-dish"></i><p>LiDAR Sensor</p></div>
-      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux"><p>Linux</p></div>
-    </div>
-  </div>
-
-</section>
-
-
-
-
-<!-- Research -->
-<section id="research">
-  <h2>Research Projects</h2>
-
-  <style>
-    #research .research-list {
-      margin-top: 8px;
-      margin-bottom: 12px;
-      padding-left: 25px;
-      list-style-type: disc;
-    }
-
-    #research .research-list > li {
-      margin-bottom: 14px;
-    }
-
-    #research .research-list > li > ul {
-      list-style-type: circle;
-      margin-top: 5px;
-      margin-bottom: 0;
-      padding-left: 30px;
-    }
-
-    #research .research-list > li > ul > li {
-      margin-bottom: 3px;
-    }
-
-    #research .research-heading {
-      margin-top: 18px;
-      margin-bottom: 6px;
-    }
-
-    #research .thesis-heading {
-      margin-top: 12px;
-      margin-bottom: 6px;
-    }
-  </style>
-
-  <!-- PhD Research -->
-  <p class="research-heading">
-    <strong>PhD Research Projects</strong>,
-    University of Massachusetts Amherst, 2024–2026
-  </p>
-
-  <ul class="research-list">
-    <li>
-      <strong><em>On Worst-Case Guarantees for Graph-Based Vector Search.</em> Accepted to NeurIPS 2026.</strong>
-      <ul>
-        <li>Proved worst-case lower bounds for graph-based nearest-neighbor search and developed constructions using Steiner points that achieve provably sublinear query time by simulating locality-sensitive hashing.</li>
+      <ul class="research-list">
+        <li>
+          <strong><em>A Study on Non-overlapping Multi-agent Pathfinding.</em> FICC 2022.</strong>
+          <ul>
+            <li>Engineered an optimized Monte Carlo Tree Search (MCTS) algorithm for large-scale multi-agent pathfinding, delivering faster runtimes and lower memory usage for complex optimization tasks.</li>
+          </ul>
+        </li>
+        <li>
+          <strong><em>On using Monte-Carlo tree search to solve puzzles.</em> ICCTA 2021.</strong>
+          <ul>
+            <li>Applied AI-driven Monte Carlo Tree Search (MCTS) with domain-specific heuristics to solve complex constraint satisfaction problems, leveraging techniques relevant to constrained optimization and quantitative decision-making.</li>
+          </ul>
+        </li>
+        <li>
+          <strong><em>Unlucky explorer: a complete non-overlapping map exploration.</em> WSSE 2021.</strong>
+          <ul>
+            <li>Introduced the Maze Dash puzzle and developed a hybrid approach using Monte Carlo Tree Search (MCTS) and SAT to compute Hamiltonian paths, optimizing MCTS for faster and more accurate solutions.</li>
+          </ul>
+        </li>
+        <li>
+          <strong><em>Decentralized communication-less multi-agent task assignment with cooperative Monte-Carlo tree search.</em> IEEE 2020.</strong>
+          <ul>
+            <li>Designed and implemented a scalable decentralized algorithm for multi-agent task allocation that eliminates the need for inter-agent communication, improving efficiency and robustness in distributed systems.</li>
+          </ul>
+        </li>
+        <li>
+          <strong><em>Multi-agent non-overlapping pathfinding with monte-carlo tree search.</em> IEEE 2019.</strong>
+          <ul>
+            <li>Developed an optimized Monte Carlo Tree Search (MCTS) framework with a 2D search space to efficiently handle large-scale optimization problems, achieving quadratic-time performance with linear memory use.</li>
+          </ul>
+        </li>
       </ul>
-    </li>
 
-    <li>
-      <strong><em>Fairness in the k-Server Problem.</em> ITCS 2026.</strong>
-      <ul>
-        <li>The goal is to ensure no server bears excessive load while serving incoming requests (fairness notion) in a metric space.</li>
-        <li>Proved that there is no deterministic online algorithm that achieves a competitive ratio less than the diameter of the metric space while also being fair. Also, showed that for any non-constant <em>k</em> in a tree graph, the Double Coverage algorithm is not fair.</li>
+      <p class="thesis-heading">
+        <strong>MSc and BSc thesis</strong>,
+        Sharif University of Technology
+      </p>
+
+      <ul class="research-list">
+        <li>
+          <strong><em>K-strong conflict-free assignment to regions.</em> MSc thesis, May 2022.</strong>
+          <ul>
+            <li>Assigned resources ensuring optimality and balance among regions.</li>
+          </ul>
+        </li>
+        <li>
+          <strong><em>Path-finding of a self-moving agent.</em> BSc thesis, May 2020.</strong>
+          <ul>
+            <li>Developed an algorithm for a single mobile agent to move efficiently.</li>
+          </ul>
+        </li>
       </ul>
-    </li>
-
-    <li>
-      <strong><em>The Secretary Problem with Predictions and Chosen Order.</em> ITCS 2026.</strong>
-      <ul>
-        <li>Proposed a new hiring problem where you can use machine-learned predictions and even choose interview order, with an algorithm that stays strong even if predictions are wrong.</li>
-      </ul>
-    </li>
-
-    <li>
-      <strong><em>Near-Optimal Consistency-Robustness Trade-Offs for Learning-Augmented Online Knapsack Problems.</em> ICML 2025.</strong>
-      <ul>
-        <li>Developed learning-augmented online knapsack algorithms utilizing minimal predictive input—specifically, a single value or interval estimating the minimum value of items accepted by an optimal offline solution—achieving consistency and robustness.</li>
-      </ul>
-    </li>
-
-    <li>
-      <strong><em>Navigable Graphs for High-Dimensional Nearest Neighbor Search.</em> Ongoing research.</strong>
-      <ul>
-        <li>Developing scalable navigable graph structures for high-dimensional nearest neighbor search, with a focus on establishing rigorous theoretical performance bounds for graph-based retrieval methods.</li>
-      </ul>
-    </li>
-
-    <li>
-      <strong><em>Calibrated Predictions for Learning-Augmented Caching.</em> Ongoing research.</strong>
-      <ul>
-        <li>Designing online caching algorithms that leverage calibrated probabilistic machine-learned predictions for page reuse, and proving competitive guarantees that depend on calibration error.</li>
-        <li>The work introduces a binary prediction framework for caching and develops phase-based analyses connecting miscalibration to additional cache faults.</li>
-      </ul>
-    </li>
-  </ul>
-
-  <!-- IPM Research -->
-  <p class="research-heading">
-    <strong>Research Engineer at Institute for Research in Fundamental Sciences (IPM)</strong>
-  </p>
-
-  <ul class="research-list">
-    <li>
-      <strong><em>A Study on Non-overlapping Multi-agent Pathfinding.</em> FICC 2022.</strong>
-      <ul>
-        <li>Engineered an optimized Monte Carlo Tree Search (MCTS) algorithm for large-scale multi-agent pathfinding, delivering faster runtimes and lower memory usage for complex optimization tasks.</li>
-      </ul>
-    </li>
-
-    <li>
-      <strong><em>On using Monte-Carlo tree search to solve puzzles.</em> ICCTA 2021.</strong>
-      <ul>
-        <li>Applied AI-driven Monte Carlo Tree Search (MCTS) with domain-specific heuristics to solve complex constraint satisfaction problems, leveraging techniques relevant to constrained optimization and quantitative decision-making.</li>
-      </ul>
-    </li>
-
-    <li>
-      <strong><em>Unlucky explorer: a complete non-overlapping map exploration.</em> WSSE 2021.</strong>
-      <ul>
-        <li>Introduced the Maze Dash puzzle and developed a hybrid approach using Monte Carlo Tree Search (MCTS) and SAT to compute Hamiltonian paths, optimizing MCTS for faster and more accurate solutions.</li>
-      </ul>
-    </li>
-
-    <li>
-      <strong><em>Decentralized communication-less multi-agent task assignment with cooperative Monte-Carlo tree search.</em> IEEE 2020.</strong>
-      <ul>
-        <li>Designed and implemented a scalable decentralized algorithm for multi-agent task allocation that eliminates the need for inter-agent communication, improving efficiency and robustness in distributed systems.</li>
-      </ul>
-    </li>
-
-    <li>
-      <strong><em>Multi-agent non-overlapping pathfinding with monte-carlo tree search.</em> IEEE 2019.</strong>
-      <ul>
-        <li>Developed an optimized Monte Carlo Tree Search (MCTS) framework with a 2D search space to efficiently handle large-scale optimization problems, achieving quadratic-time performance with linear memory use.</li>
-      </ul>
-    </li>
-  </ul>
-
-  <!-- MSc and BSc Thesis -->
-  <p class="thesis-heading">
-    <strong>MSc and BSc thesis</strong>,
-    Sharif University of Technology
-  </p>
-
-  <ul class="research-list">
-    <li>
-      <strong><em>K-strong conflict-free assignment to regions.</em> MSc thesis, May 2022.</strong>
-      <ul>
-        <li>Assigned resources ensuring optimality and balance among regions.</li>
-      </ul>
-    </li>
-
-    <li>
-      <strong><em>Path-finding of a self-moving agent.</em> BSc thesis, May 2020.</strong>
-      <ul>
-        <li>Developed an algorithm for a single mobile agent to move efficiently.</li>
-      </ul>
-    </li>
-  </ul>
-
-</section>
-
+    </section>
 
     <!-- Contact -->
     <section id="contacts">
       <h2>Contacts</h2>
       <p>Email: FirstName.LastName@gmail.com</p>
-     <!-- <p>LinkedIn: <a href="#" target="_blank">View Profile</a></p>
-      <p>GitHub: <a href="#" target="_blank">View Repositories</a></p> -->
     </section>
 
     <footer>© 2025 Mohammadreza Daneshvaramoli</footer>
@@ -518,11 +689,38 @@
 
   <script>
     const menuToggle = document.getElementById('menuToggle');
+    const sidebar = document.querySelector('.sidebar');
     const sidebarMenu = document.getElementById('sidebarMenu');
-    menuToggle.addEventListener('click', () => {
-      sidebarMenu.classList.toggle('open');
-      menuToggle.classList.toggle('open');
+    const backdrop = document.getElementById('menuBackdrop');
+    const mobileBreakpoint = window.matchMedia('(max-width: 900px)');
+
+    function setMenuOpen(open) {
+      const shouldOpen = open && mobileBreakpoint.matches;
+      sidebar.classList.toggle('is-open', shouldOpen);
+      backdrop.classList.toggle('is-visible', shouldOpen);
+      document.body.classList.toggle('menu-open', shouldOpen);
+      menuToggle.setAttribute('aria-expanded', String(shouldOpen));
+      menuToggle.setAttribute('aria-label',
+        shouldOpen ? 'Close navigation' : 'Open navigation');
+      menuToggle.querySelector('i').className =
+        shouldOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+    }
+
+    menuToggle.addEventListener('click', () =>
+      setMenuOpen(!sidebar.classList.contains('is-open'))
+    );
+
+    backdrop.addEventListener('click', () => setMenuOpen(false));
+
+    sidebarMenu.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', () => setMenuOpen(false));
     });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') setMenuOpen(false);
+    });
+
+    mobileBreakpoint.addEventListener('change', () => setMenuOpen(false));
   </script>
 </body>
 </html>
